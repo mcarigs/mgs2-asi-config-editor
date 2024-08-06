@@ -30,7 +30,7 @@
 
   As a precaution, it is recommended that you make a backup of the '.ini' files located in the 'bin\\scripts' folder where you have MGS2 installed just in case this editor fucks up.
 
-  Please report any bugs`;
+  Please report any bugs to me on Github: https://github.com/mcarigs/mgs2-asi-config-editor/issues`;
 
   // Show the startup message dialog
   showDialog(startupMessage, 'Beta Warning', MessageType.error);
