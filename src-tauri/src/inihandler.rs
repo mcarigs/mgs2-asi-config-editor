@@ -61,16 +61,7 @@ pub fn ensure_ini_files_exist(app: tauri::AppHandle) -> Result<(), String> {
 
 // Read an INI file and return its contents as a nested HashMap
 #[tauri::command]
-pub fn read_ini_file(
-    handle: tauri::AppHandle,
-    path: &str,
-) -> Result<HashMap<String, HashMap<String, String>>, String> {
-    // Resolve the resource path - .editordata/${path}
-    let resource_path = handle
-        .path_resolver()
-        .resolve_resource(path)
-        .expect("Failed to resolve resource");
-
+pub fn read_ini_file(path: &str) -> Result<HashMap<String, HashMap<String, String>>, String> {
     // Get the current executable directory path
     let exe_dir = env::current_dir().map_err(|e| e.to_string())?;
 
