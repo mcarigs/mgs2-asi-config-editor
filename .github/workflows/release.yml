@@ -40,10 +40,6 @@ jobs:
         with:
           tagName: v__VERSION__
           releaseName: 'MGS2 ASI Mod Config Editor v__VERSION__'
-          releaseBody: |
-              - Download the latest release & launch the installer. When asked where to install the application, choose the `bin\scripts` folder where you have MGS2 installed.
-                - For example: `C:\Program Files (x86)\GOG Galaxy\Games\Metal Gear Solid 2 Substance\bin\scripts`.
-              - As a precaution, it's recommended to backup of your existing `.ini` files before using this application
           releaseDraft: false
           prerelease: true
           args: ${{ matrix.args }}
