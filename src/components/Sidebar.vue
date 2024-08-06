@@ -131,7 +131,7 @@
                 hidden: false,
               },
               {
-                href: '/MGS2.Drebin.ini',
+                href: '/MGS2.DrebinMode.ini',
                 title: 'Drebin Mode',
                 hidden: false
               },
