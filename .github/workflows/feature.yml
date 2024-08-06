@@ -12,6 +12,7 @@ jobs:
   create-pull-request:
     permissions:
       contents: write
+      pull-requests: write
     strategy:
       fail-fast: false
       matrix:
@@ -21,8 +22,17 @@ jobs:
     runs-on: ${{ matrix.platform }}
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Create Pull Request
-        env:
-          GH_TOKEN: ${{ github.token }}
-        run: gh pr create -B main -H $GITHUB_REF_NAME --title "Merge $GITHUB_REF_NAME into main" --body "Created by Github action via commit $GITHUB_SHA"
+        uses: peter-evans/create-pull-request@v6
+        with:
+          git-token: ${{ secrets.GITHUB_TOKEN }}
+          base: main
+          branch: ${{ github.ref }}
+          title: "Merge ${{ github.ref_name }} into main"
+          body: "Created by Github action via commit ${{ github.sha }}"
+          draft: false
+          delete-branch: true
+          reviewers: mcarigs
