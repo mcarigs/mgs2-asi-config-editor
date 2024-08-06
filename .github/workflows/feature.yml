@@ -1,0 +1,26 @@
+name: 'publish'
+
+on:
+  push:
+    branches:
+      - 'feature/*'
+
+# This workflow will trigger on push to a 'feature/*/ branch
+# It will create a new pull request targetting the main branch
+
+jobs:
+  create-pull-request:
+    permissions:
+      contents: write
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - platform: 'ubuntu-22.04'
+
+    runs-on: ${{ matrix.platform }}
+    steps:
+      - name: Create Pull Request
+        run: gh pr create -B main -H $GITHUB_REF_NAME --title "Merge $GITHUB_REF_NAME into main" --body "Created by Github action via commit $GITHUB_SHA"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
