@@ -76,19 +76,18 @@
 
       if (confirmNavigation) {
         cancelEditing();
-        await loadIniFile(`.editordata/${newFileName}`);
+        await loadIniFile(`${newFileName}`);
       } else {
         // If the user cancels navigation, we need to revert the route change
-        // This assumes you're using vue-router. Adjust if you're using a different routing solution.
         history.pushState(history.state, '', `#/${oldFileName}`);
-        await loadIniFile(`.editordata/${oldFileName}`);
+        await loadIniFile(`${oldFileName}`);
       }
     } catch (error) {
       console.error("Error during navigation confirmation:", error);
       // Handle the error appropriately
     }
   } else {
-    await loadIniFile(`.editordata/${newFileName}`);
+    await loadIniFile(`${newFileName}`);
   }
 }, { immediate: true });
 
