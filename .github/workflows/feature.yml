@@ -25,4 +25,4 @@ jobs:
       - name: Create Pull Request
         run: gh pr create -B main -H $GITHUB_REF_NAME --title "Merge $GITHUB_REF_NAME into main" --body "Created by Github action via commit $GITHUB_SHA"
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
