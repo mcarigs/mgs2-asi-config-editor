@@ -33,7 +33,7 @@
   Please report any bugs to me on Github: https://github.com/mcarigs/mgs2-asi-config-editor/issues`;
 
   // Show the startup message dialog
-  showDialog(startupMessage, 'Beta Warning', MessageType.error);
+  showDialog(startupMessage, 'Beta Warning', MessageType.warning);
 </script>
 
 <template>
