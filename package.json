@@ -1,0 +1,29 @@
+{
+  "name": "mgs2-asi-config-editor",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vue-tsc --noEmit && vite build",
+    "preview": "vite preview",
+    "tauri": "tauri"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^6.1.1",
+    "@fortawesome/free-solid-svg-icons": "^6.1.1",
+    "@fortawesome/vue-fontawesome": "^3.0.1",
+    "@tauri-apps/api": "^1.6.0",
+    "vue": "^3.3.4",
+    "vue-router": "^4.1.5",
+    "vue-sidebar-menu": "^5.4.0"
+  },
+  "devDependencies": {
+    "@tauri-apps/cli": "^1.6.0",
+    "@vitejs/plugin-vue": "^5.0.5",
+    "sass": "^1.77.6",
+    "typescript": "^5.2.2",
+    "vite": "^5.3.1",
+    "vue-tsc": "^2.0.22"
+  }
+}
