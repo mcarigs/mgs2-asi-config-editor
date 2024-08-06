@@ -203,8 +203,8 @@ fn write_to_file(
             in_section = true;
             current_section = trimmed[1..trimmed.len() - 1].to_string();
             writeln!(temp_file, "{}", line).map_err(|e| e.to_string())?;
-        } else if trimmed.starts_with('#') && in_section {
-            // Preserve comments outside of section grouping
+        } else if trimmed.starts_with('#') && trimmed.contains('=') && in_section {
+            // Remove comment so the key-value pair can be read and displayed in the UI
             writeln!(temp_file, "{}", line.replace('#', "")).map_err(|e| e.to_string())?;
         } else if trimmed.starts_with('#') {
             // Preserve comments outside of section grouping
