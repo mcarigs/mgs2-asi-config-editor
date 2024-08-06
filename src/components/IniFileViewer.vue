@@ -82,14 +82,14 @@
         history.pushState(history.state, '', `#/${oldFileName}`);
         await loadIniFile(`${oldFileName}`);
       }
-    } catch (error) {
-      console.error("Error during navigation confirmation:", error);
-      // Handle the error appropriately
+      } catch (error) {
+        console.error("Error during navigation confirmation:", error);
+        // Handle the error appropriately
+      }
+    } else {
+        await loadIniFile(`${newFileName}`);
     }
-  } else {
-    await loadIniFile(`${newFileName}`);
-  }
-}, { immediate: true });
+  }, { immediate: true });
 
   // Helper functions to determine value types
   const isBooleanValue = (value) => {
@@ -108,6 +108,107 @@
 
   const isMultilineValue = (value) => {
     return value.includes('\n');
+  };
+
+  // Mapping of milti-choice values associated with their respective keys
+  const multiChoiceOptions = {
+    AlertLevel: [
+      { value: 'Infiltration', display: 'Infiltration' },
+      { value: 'Caution', display: 'Caution' },
+      { value: 'Evasion', display: 'Evasion' },
+      { value: 'Alert', display: 'Alert' },
+    ],
+    HostageHour: [
+      { value: '', display: 'Based on clock' },
+      { value: '0', display: 'Jennifer' },
+      { value: '13', display: 'Beasts' },
+      { value: '22', display: 'Old Beauties'},
+      {value: '23', display: 'Normal Mix'}
+    ],
+    Mode: [
+      { value: 'Basic', display: 'Basic' },
+      { value: 'Custom', display: 'Custom' },
+      { value: 'Extreme', display: 'Extreme' }
+    ],
+    Precision: [
+      { value: '0', display: '0' },
+      { value: '1', display: '0.0' },
+      { value: '2', display: '0.00' }
+    ],
+    Priority: [
+      { value: '0', display: 'Low' },
+      { value: '1', display: 'Below Normal' },
+      { value: '2', display: 'Normal' },
+      { value: '3', display: 'Above Normal' },
+      { value: '4', display: 'High' },
+    ],
+    Reserve: [
+      { value: 'Previous', display: 'Previous' },
+      { value: 'Unequip', display: 'Unequip' },
+      { value: 'Reserve', display: 'Normal' },
+      { value: 'NoChange', display: 'NoChange' }
+    ],
+    Weapon: [
+      { value: 'M9', display: 'M9' },
+      { value: 'SOCOM', display: 'SOCOM' },
+      { value: 'AKs-74u', display: 'AKs-74u' },
+      { value: 'M4', display: 'M4' },
+      { value: 'Grenade', display: 'Grenade' },
+      { value: 'Magazine', display: 'Magazine' },
+      { value: 'Nikita', display: 'Nikita' },
+      { value: 'RGB6', display: 'RGB6' },
+      { value: 'Stinger', display: 'Stinger' },
+      { value: 'Claymore', display: 'Claymore' },
+      { value: 'Book', display: 'Book' },
+      { value: 'C4', display: '' },
+      { value: 'Coolant', display: 'Coolant' },
+      { value: 'Stun Grenade', display: 'Stun Grenade' },
+      { value: 'Chaff Grenade', display: 'Chaff Grenade' },
+      { value: 'PSG1-1', display: 'PSG-1' },
+      { value: 'PSG1-T', display: 'PSG-1T' }
+    ],
+    Weapon: [
+      { value: 'Ration', display: 'Ration' },
+      { value: 'Pentazemin', display: 'Pentazemin' },
+      { value: 'Medicine', display: 'Medicine' },
+      { value: 'Bandage', display: 'Bandage' },
+      { value: 'Thermal Goggles', display: ' Goggles' },
+      { value: 'NVG', display: 'NVG' },
+      { value: 'Mine Detector', display: 'Mine Detector' },
+      { value: 'Sensor A', display: 'Sensor A' },
+      { value: 'Sensor B', display: 'Sensor B' },
+      { value: 'AP Sensor', display: 'AP Sensor' },
+      { value: 'Camera', display: 'Camera' },
+      { value: 'Scope', display: 'Scope' },
+      { value: 'Digital Camera', display: 'Digital Camera' },
+      { value: 'Box 1', display: 'Box 1' },
+      { value: 'Box 2', display: 'Box 2' },
+      { value: 'Box 3', display: 'Box 3' },
+      { value: 'Box 4', display: 'Box 4' },
+      { value: 'Box 5', display: 'Box 5' },
+      { value: 'Wet Box', display: 'Wet Box' },
+      { value: 'Body Armor', display: 'Body Armor' },
+      { value: 'BDU', display: 'BDU' },
+      { value: 'Bandana', display: 'Bandana' },
+      { value: 'Infinity Wig', display: 'Infinity Wig' },
+      { value: 'Blue Wig', display: 'Blue Wig' },
+      { value: 'Orange Wig', display: 'Orange Wig' },
+      { value: 'Wig C', display: 'Wig C' },
+      { value: 'Wig D', display: 'Wig D' },
+      { value: 'Stealth', display: 'Stealth' },
+      { value: 'Bandana', display: 'Bandana' },
+
+    ]
+  };
+
+  const getDisplayName = (key, value) => {
+    const option = multiChoiceOptions[key].find(opt => opt.value === value);
+    return option ? option.display : value;
+  };
+
+  const isMultiChoiceValue = (key) => {
+
+  return key in multiChoiceOptions;
   };
 
   // Log initial and updated INI data
@@ -168,6 +269,20 @@
                     :disabled="!isEditing"
                     @change="e => updateEditedData(secName, key, e.target.checked ? 'Yes' : 'No')"
                   />
+                </template>
+                <!-- Multiple choice values-->
+
+                <template v-else-if="isMultiChoiceValue(key)">
+                  <select
+                    v-if="isEditing"
+                    :value="value"
+                    @change="e => updateEditedData(secName, key, e.target.value)"
+                  >
+                    <option v-for="option in multiChoiceOptions[key]" :key="option.value" :value="option.value">
+                      {{ option.display }}
+                    </option>
+                  </select>
+                  <span v-else>{{ getDisplayName(key, value) }}</span>
                 </template>
                 <!-- Textarea for multiline values -->
                 <template v-else-if="isMultilineValue(value)">
@@ -330,6 +445,11 @@
     min-height: 80px;
     max-height: 100px;
     resize: none;
+  }
+
+  select {
+    width: 50%;
+    padding: 2px 5px;
   }
 
   /* Styles for preformatted text */
