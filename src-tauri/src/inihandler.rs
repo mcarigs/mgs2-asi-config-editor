@@ -71,8 +71,14 @@ pub fn read_ini_file(
         .resolve_resource(path)
         .expect("Failed to resolve resource");
 
+    // Get the current executable directory path
+    let exe_dir = env::current_dir().map_err(|e| e.to_string())?;
+
+    // Append filename w/ extension to the executable directory path
+    let exe_file_path = exe_dir.join(PathBuf::from(path).file_name().unwrap());
+
     // Read the entire file content
-    let mut file = std::fs::File::open(resource_path).map_err(|e| e.to_string())?;
+    let mut file = std::fs::File::open(exe_file_path).map_err(|e| e.to_string())?;
     let mut content = String::new();
     file.read_to_string(&mut content)
         .map_err(|e| e.to_string())?;
@@ -205,7 +211,7 @@ fn write_to_file(
             writeln!(temp_file, "{}", line).map_err(|e| e.to_string())?;
         } else if trimmed.starts_with('#') && trimmed.contains('=') && in_section {
             // Remove comment so the key-value pair can be read and displayed in the UI
-            writeln!(temp_file, "{}", line.replace('#', "")).map_err(|e| e.to_string())?;
+            writeln!(temp_file, "{}", line.replace('#', "").trim()).map_err(|e| e.to_string())?;
         } else if trimmed.starts_with('#') {
             // Preserve comments outside of section grouping
             writeln!(temp_file, "{}", line).map_err(|e| e.to_string())?;
