@@ -110,7 +110,7 @@
     return value.includes('\n');
   };
 
-  // Mapping of milti-choice values associated with their respective keys
+  // Mapping of multi-choice values associated with their respective keys
   const multiChoiceOptions = {
     AlertLevel: [
       { value: 'Infiltration', display: 'Infiltration' },
@@ -167,7 +167,7 @@
       { value: 'PSG1-1', display: 'PSG-1' },
       { value: 'PSG1-T', display: 'PSG-1T' }
     ],
-    Weapon: [
+    Item: [
       { value: 'Ration', display: 'Ration' },
       { value: 'Pentazemin', display: 'Pentazemin' },
       { value: 'Medicine', display: 'Medicine' },
