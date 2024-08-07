@@ -1,5 +1,7 @@
 # MGS2 ASI Mod Config Editor
 
+![alt text](public/image.png)
+
 ## Table of Contents
 1. [Introduction](#introduction)
 2. [Features](#features)
