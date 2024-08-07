@@ -58,43 +58,23 @@
 
   .sidebar {
     position: fixed;
-    top: 0;
-    left: 0;
     height: 100vh;
-    z-index: 999;
   }
 
   .main-content {
     flex-grow: 1;
-    overflow-y: auto;
-    transition: margin-left 0.3s;
-    margin-left: 300px;
-    padding: 20px;
+    transition: margin-left 0.4s;
+    margin-left: 350px;
+    margin-right: 100px;
+    padding: 0px;
     width: calc(100% - 300px);
     box-sizing: border-box;
-    /* Custom scrollbar styles */
-    scrollbar-width: thin;
-    scrollbar-color: #4286f4 #fafaff;
   }
 
   /* Adjust main content when sidebar is collapsed */
   .sidebar-collapsed .main-content {
-    margin-left: 50px;
-    width: calc(100% - 50px);
-  }
-
-  /* Webkit-specific scrollbar styles for main content */
-  .main-content::-webkit-scrollbar {
-    width: 8px;
-  }
-
-  .main-content::-webkit-scrollbar-track {
-    background: #2a2a2e;
-  }
-
-  .main-content::-webkit-scrollbar-thumb {
-    background-color: #4285f4;
-    border-radius: 4px;
+    margin-left: 150px;
+    width: calc(100% - 150px);
   }
 
   /* Responsive design for smaller screens */
@@ -107,15 +87,15 @@
 
   /* Global scrollbar styles */
   ::-webkit-scrollbar {
-    width: 8px;
+    width: 10px;
   }
 
   ::-webkit-scrollbar-track {
-    background: #2a2a2e;
+    background: #2f2f2f;
   }
 
   ::-webkit-scrollbar-thumb {
-    background-color: #4285f4;
-    border-radius: 4px;
+    background-color: #4286f4ca;
+    border-radius: 6px;
   }
 </style>

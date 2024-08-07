@@ -346,51 +346,23 @@
   @import "vue-sidebar-menu/src/scss/vue-sidebar-menu.scss";
   @import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600');
 
-  // Global styles
-  body, html {
+  body {
     margin: 0;
     padding: 0;
-  }
-
-  body {
     font-family: 'Source Sans Pro', sans-serif;
     font-size: 18px;
     background-color: #2f2f2fcd;
-    color: #fff7f7;
-  }
-
-  // Sidebar overlay styles
-  .sidebar-overlay {
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    background-color: #000;
-    opacity: 0.5;
-    z-index: 900;
+    color: #f7fbff;
   }
 
   .container {
-    max-width: 900px;
+    width: auto;
   }
 
   // Sidebar menu styles
   .v-sidebar-menu {
-    height: 100%;
-    position: fixed;
-    top: 0;
-    left: 0;
-
     &.vsm_collapsed {
-      width: 50px !important; // Adjust to match App.vue
-    }
-  }
-
-  // Responsive styles
-  @media (max-width: 768px) {
-    .v-sidebar-menu:not(.vsm_collapsed) {
-      width: 50px !important;
+      width: auto;
     }
   }
 </style>
