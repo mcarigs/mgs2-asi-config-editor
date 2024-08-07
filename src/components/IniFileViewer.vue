@@ -324,6 +324,7 @@
 
   /* Styles for control buttons */
   .controls {
+    margin-top: -10px;
     margin-bottom: 20px;
     text-align: center;
   }
@@ -333,16 +334,18 @@
     font-style: italic;
   }
 
-  /* Layout for INI content */
+  /* Container holding INI content */
   .ini-content {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
   }
 
+  /* Outer box surrounding INI sections
+     and their key-value pairs */
   .ini-section {
-    width: calc(50% - 10px);
     margin-bottom: 20px;
+    margin-left: 10px;
   }
 
   /* Responsive layout for smaller screens */
@@ -353,24 +356,22 @@
     }
   }
 
-  /* Styles for section headers and content */
+  /* Header bar displaying INI section name */
   .section-header {
     text-align: center;
-    background-color: rgba(150, 146, 146, 0.518);
-    padding: 10px;
+    background-color: #4286f465;
+    padding: 5px;
     margin: 0;
   }
 
+  /* Container with key-value pairs */
   .section-content {
-    padding: 15px;
+    padding: 20px;
   }
 
-  /* Styles for individual INI items */
-  .ini-item {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    margin-bottom: 10px;
+  .key {
+    text-align: center;
+    padding-left: 120px;
   }
 
   .key-colon {
@@ -378,26 +379,30 @@
     justify-content: flex-end;
     align-items: center;
     width: 50%;
-    padding-right: 10px;
+    padding-right: 5px;
   }
 
-  .key {
-    text-align: right;
+  /* Styles for individual INI items */
+  .ini-item {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-bottom: 5px;
   }
 
   .colon {
-    margin-left: 5px;
+    margin-left: 1px;
   }
 
   .value {
     width: 50%;
-    padding-left: 10px;
+    padding-left: 5px;
   }
 
   /* Styles for input elements */
   input {
-    width: 15%;
-    padding: 2px 5px;
+    width: 35%;
+    padding: 3px 6px;
   }
 
   input[type="checkbox"] {
@@ -406,16 +411,15 @@
   }
 
   input[type="color"] {
-    width: 50px;
-    height: 25px;
+    width: 40px;
+    height: 20px;
     padding: 0;
     border: none;
   }
 
   .color-preview {
-    width: 50px;
-    height: 25px;
-    border: 1px solid #ccc;
+    width: 40px;
+    height: 20px;
   }
 
   /* Button styles */
@@ -427,28 +431,30 @@
     border: none;
     border-radius: 4px;
     cursor: pointer;
+    font-size: 20px;
+    font-weight: 400;
   }
 
   button:hover {
-    background-color: #3367d6;
+    background-color: #2851ab;
   }
 
   h1 {
     text-align: center;
+    margin-top: 0px;
     margin-bottom: 20px;
   }
 
   /* Textarea styles */
   textarea {
-    width: 50%;
-    height: 60px;
+    width: 35%;
     min-height: 80px;
     max-height: 100px;
     resize: none;
   }
 
   select {
-    width: 50%;
+    width: auto;
     padding: 2px 5px;
   }
 

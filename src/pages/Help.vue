@@ -255,15 +255,12 @@
   color: #e6e6e6;
   font-family: Arial, sans-serif;
   line-height: 1.6;
-  overflow-y: auto;
   height: 100%;
-  scrollbar-width: thin;
-  scrollbar-color: #4285f4 #2a2a2e;
 }
 
 /* Spacer at the bottom of the content */
 .content-spacer {
-  height: 60px;
+  height: 50px;
 }
 
 /* Heading styles */
@@ -296,7 +293,6 @@ pre {
   border: 1px solid #ddd;
   border-radius: 4px;
   padding: 10px;
-  overflow-x: auto;
   font-family: monospace;
   white-space: pre-wrap;
   word-wrap: break-word;
@@ -363,20 +359,18 @@ a:hover {
 }
 .help-page {
   height: 100%;
-  overflow: hidden;
+  overflow: visible;
 }
 
 .help-container {
   max-width: 800px;
   margin: 0 auto;
-  padding: 20px;
+  padding: 0px;
   color: #e6e6e6;
   font-family: Arial, sans-serif;
   line-height: 1.6;
-  overflow-y: auto;
+
   height: 100%;
-  scrollbar-width: thin;
-  scrollbar-color: #4285f4 #2a2a2e;
 }
 
 /* Webkit-specific scrollbar styles */

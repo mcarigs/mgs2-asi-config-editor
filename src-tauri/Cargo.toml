@@ -1,6 +1,6 @@
 [package]
 name = "mgs2-asi-config-editor"
-version = "0.1.0"
+version = "0.1.1"
 description = "Visual Editor for Configuring Bmn's MGS2 ASI Mod"
 authors = ["Carigs"]
 edition = "2021"
