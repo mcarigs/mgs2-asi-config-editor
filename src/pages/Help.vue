@@ -152,6 +152,10 @@
               <td>Skip cutscenes and avoid forced codecs.</td>
             </tr>
             <tr>
+              <td>Dark Mode</td>
+              <td>Hides the gameplay onscreen. If wanting to play with radar, the UnlockRadar module is also recommended</td>
+            </tr>
+            <tr>
               <td>Default Options</td>
               <td>Set the contents of the Options menu when the game launches</td>
             </tr>

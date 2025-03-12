@@ -71,6 +71,11 @@
                 title: 'New Game Info',
                 disabled: false,
               },
+              {
+                href: '/MGS2.VRInfo.ini',
+                title: 'VR Missions Info',
+                disabled: false,
+              },
             ]
           },
           {
@@ -106,6 +111,11 @@
                 hidden: false,
               },
               {
+                href: '/MGS2.Dark.ini',
+                title: 'Dark Mode',
+                hidden: false,
+              },
+              {
                 href: '/MGS2.GameOver.ini',
                 title: 'Game Over if Caution',
                 hidden: false,
@@ -123,6 +133,11 @@
               {
                 href: '/MGS2.Ames.ini',
                 title: 'Ames',
+                hidden: false,
+              },
+              {
+                href: '/MGS2.ItemRando.ini',
+                title: 'Item Randomizer',
                 hidden: false,
               },
               {
@@ -176,6 +191,11 @@
                 title: 'PS2 Controls',
                 hidden: false,
               },
+              {
+                href: '/MGS2.TwinSnakesInput.ini',
+                title: 'Twin Snakes Input',
+                hidden: false,
+              },
             ],
           },
           {
@@ -205,9 +225,14 @@
             hidden: false,
             disabled: false,
             child: [
-            {
+              {
                 href: '/MGS2.Options.ini',
                 title: 'Game Options',
+                hidden: false,
+              },
+              {
+                href: '/MGS2.Style.ini',
+                title: 'Style Changer',
                 hidden: false,
               },
               {
