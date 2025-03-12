@@ -14,7 +14,7 @@
   });
 
   const confirmEditCancel = async () => {
-    return await confirm('You have unsaved changes. Are   you sure you want to navigate away?', { title: 'Unsaved Changes', type: 'warning' });
+    return await confirm('You have unsaved changes. Are you sure you want to navigate away?', { title: 'Unsaved Changes', type: 'warning' });
   }
 
   // Get the current route
