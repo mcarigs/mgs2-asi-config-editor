@@ -180,6 +180,10 @@
               <td>Add "Game Over If Caution".</td>
             </tr>
             <tr>
+              <td>Item Randomiser</td>
+              <td>Challenge mode that shuffles item pickups around</td>
+            </tr>
+            <tr>
               <td>New Game Info</td>
               <td>Display information about game settings on the New Game screen</td>
             </tr>
@@ -229,8 +233,16 @@
               <td>Show whether your turbo solution (ASI or XInputPlus) is enabled, and play custom SFX</td>
             </tr>
             <tr>
+              <td>Twin Snakes Input</td>
+              <td>Modify the game controls to be like Twin Snakes</td>
+            </tr>
+            <tr>
               <td>Unlock Radar</td>
               <td>Show the radar in most situations. Port of the V's Fix patch by WhiteSnoop.</td>
+            </tr>
+            <tr>
+              <td>VR Missions Info</td>
+              <td>Displays information about your score when completing a Mission</td>
             </tr>
             <tr>
               <td>VR Randomiser</td>
